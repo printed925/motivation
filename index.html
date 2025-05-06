@@ -5,20 +5,36 @@
   <title>Motivation Boost</title>
   <style>
     body {
-      display: flex;
+      margin: 0;
+      padding: 0;
       height: 100vh;
+      background: #f0f8ff;
+      display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
-      font-size: 1.5em;
+      font-family: "Segoe UI", sans-serif;
+      font-size: 2.5em;
       text-align: center;
-      background: #f0f8ff;
-      padding: 2em;
+      overflow: hidden;
+    }
+
+    #message {
+      max-width: 80%;
+      z-index: 10;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
+  <canvas id="confetti-canvas"></canvas>
   <div id="message"></div>
+
   <script>
     const messages = [
       "You are doing better than you think.",
@@ -34,6 +50,19 @@
     ];
     const message = messages[Math.floor(Math.random() * messages.length)];
     document.getElementById('message').innerText = message;
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: true });
+
+    // Burst effect
+    myConfetti({
+      particleCount: 150,
+      spread: 120,
+      origin: { y: 0.6 }
+    });
   </script>
 </body>
 </html>
