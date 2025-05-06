@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivation Boost</title>
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 1.5em;
+      text-align: center;
+      background: #f0f8ff;
+      padding: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="message"></div>
+  <script>
+    const messages = [
+      "You are doing better than you think.",
+      "One step at a time is still progress.",
+      "You are capable of amazing things.",
+      "Your efforts matter, even if no one sees them.",
+      "It’s okay to rest. You’re human.",
+      "You’ve got this — really.",
+      "Don’t give up. Future you is proud.",
+      "You are not alone. Keep going.",
+      "You are worthy, even when you’re not productive.",
+      "Believe in your ability to learn and grow."
+    ];
+    const message = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById('message').innerText = message;
+  </script>
+</body>
+</html>
